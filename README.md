@@ -1,2 +1,2 @@
 # Park_Notifier
-A Recreation.gov notifier for mountain climbing
+An open sourced notifier for Recreation.gov website updates.
