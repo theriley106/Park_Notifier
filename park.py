@@ -33,13 +33,13 @@ def returnActionToken(page):
         if 'actionToken' in str(tag):
             return str(str(tag).partition("value='")[2]).partition("' name='")[0]
 
-def CheckChange():
+def CheckChange(facilityId):
     res = requests.session()
 
     data = {'permitTypeId':'1034702728',
     'targetUIID':'entrance',
     'contractCode':'NRSO',
-    'facilityId':'72201',
+    'facilityId':facilityId,
     'titleText':'Any Trail/Zone'}
 
     a = res.post('https://www.recreation.gov/ajax/EntranceList', data=data)
