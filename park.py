@@ -23,11 +23,11 @@ def Email(newtext, myemail=None, password=None, sendemail=None):
 	text_file.write(newtext)
 	text_file.close()
 	yagmail.SMTP(myemail).send(sendemail, 'Change Detected {} Spots Now Available for 6/30/2018'.format(newtext), 'Click here: https://www.recreation.gov/permitCalendar.do?page=calendar&calarvdate=06/30/2018&contractCode=NRSO&parkId=72201\nTo Purchase the tickets')
-	yagmail.SMTP(myemail).send("funwithmyfriends@gmail.com", 'Change Detected {} Spots Now Available for 6/30/2018'.format(newtext), 'Click here: https://www.recreation.gov/permitCalendar.do?page=calendar&calarvdate=06/30/2018&contractCode=NRSO&parkId=72201\nTo Purchase the tickets')
-	yagmail.SMTP(myemail).send("samritadhindsa@gmail.com", 'Change Detected {} Spots Now Available for 6/30/2018'.format(newtext), 'Click here: https://www.recreation.gov/permitCalendar.do?page=calendar&calarvdate=06/30/2018&contractCode=NRSO&parkId=72201\nTo Purchase the tickets')
-	yagmail.SMTP(myemail).send("mathilde.badoual@berkeley.edu", 'Change Detected {} Spots Now Available for 6/30/2018'.format(newtext), 'Click here: https://www.recreation.gov/permitCalendar.do?page=calendar&calarvdate=06/30/2018&contractCode=NRSO&parkId=72201\nTo Purchase the tickets')
-	yagmail.SMTP(myemail).send("lkozinakov@yahoo.com", 'Change Detected {} Spots Now Available for 6/30/2018'.format(newtext), 'Click here: https://www.recreation.gov/permitCalendar.do?page=calendar&calarvdate=06/30/2018&contractCode=NRSO&parkId=72201\nTo Purchase the tickets')
-	yagmail.SMTP(myemail).send("Jonathan.Deffarges@gmail.com", 'Change Detected {} Spots Now Available for 6/30/2018'.format(newtext), 'Click here: https://www.recreation.gov/permitCalendar.do?page=calendar&calarvdate=06/30/2018&contractCode=NRSO&parkId=72201\nTo Purchase the tickets')
+	yagmail.SMTP(myemail).send("", 'Change Detected {} Spots Now Available for 6/30/2018'.format(newtext), 'Click here: https://www.recreation.gov/permitCalendar.do?page=calendar&calarvdate=06/30/2018&contractCode=NRSO&parkId=72201\nTo Purchase the tickets')
+	yagmail.SMTP(myemail).send("", 'Change Detected {} Spots Now Available for 6/30/2018'.format(newtext), 'Click here: https://www.recreation.gov/permitCalendar.do?page=calendar&calarvdate=06/30/2018&contractCode=NRSO&parkId=72201\nTo Purchase the tickets')
+	yagmail.SMTP(myemail).send("", 'Change Detected {} Spots Now Available for 6/30/2018'.format(newtext), 'Click here: https://www.recreation.gov/permitCalendar.do?page=calendar&calarvdate=06/30/2018&contractCode=NRSO&parkId=72201\nTo Purchase the tickets')
+	yagmail.SMTP(myemail).send("", 'Change Detected {} Spots Now Available for 6/30/2018'.format(newtext), 'Click here: https://www.recreation.gov/permitCalendar.do?page=calendar&calarvdate=06/30/2018&contractCode=NRSO&parkId=72201\nTo Purchase the tickets')
+	yagmail.SMTP(myemail).send("", 'Change Detected {} Spots Now Available for 6/30/2018'.format(newtext), 'Click here: https://www.recreation.gov/permitCalendar.do?page=calendar&calarvdate=06/30/2018&contractCode=NRSO&parkId=72201\nTo Purchase the tickets')
 	
 	print('sent email')
 
@@ -92,5 +92,5 @@ if __name__ == "__main__":
 	while True:
 		A = CheckChange('72201')
 		if A != None:
-			Email(A, myemail="leki.dinosaurus@gmail.com", password="leonenaj2", sendemail="leon.kozinakov@gmail.com")
+			Email(A, myemail="", password="", sendemail="")
 		time.sleep(60 * WAIT)
