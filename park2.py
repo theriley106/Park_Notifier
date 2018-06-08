@@ -19,22 +19,21 @@ def Email(newtext, myemail=None, password=None, sendemail=None):
 		print("error")
 	yagmail.register(myemail, password)
 	yag = yagmail.SMTP(myemail)
-	text_file = open("status.txt", "w")
+	text_file = open("status2.txt", "w")
 	text_file.write(newtext)
 	text_file.close()
-	yagmail.SMTP(myemail).send(sendemail, 'Change Detected {} Spots Now Available for 6/30/2018'.format(newtext), 'Click here: https://www.recreation.gov/permitCalendar.do?page=calendar&calarvdate=06/30/2018&contractCode=NRSO&parkId=72201\nTo Purchase the tickets')
-	yagmail.SMTP(myemail).send("funwithmyfriends@gmail.com", 'Change Detected {} Spots Now Available for 6/30/2018'.format(newtext), 'Click here: https://www.recreation.gov/permitCalendar.do?page=calendar&calarvdate=06/30/2018&contractCode=NRSO&parkId=72201\nTo Purchase the tickets')
-	yagmail.SMTP(myemail).send("samritadhindsa@gmail.com", 'Change Detected {} Spots Now Available for 6/30/2018'.format(newtext), 'Click here: https://www.recreation.gov/permitCalendar.do?page=calendar&calarvdate=06/30/2018&contractCode=NRSO&parkId=72201\nTo Purchase the tickets')
-	yagmail.SMTP(myemail).send("mathilde.badoual@berkeley.edu", 'Change Detected {} Spots Now Available for 6/30/2018'.format(newtext), 'Click here: https://www.recreation.gov/permitCalendar.do?page=calendar&calarvdate=06/30/2018&contractCode=NRSO&parkId=72201\nTo Purchase the tickets')
-	yagmail.SMTP(myemail).send("lkozinakov@yahoo.com", 'Change Detected {} Spots Now Available for 6/30/2018'.format(newtext), 'Click here: https://www.recreation.gov/permitCalendar.do?page=calendar&calarvdate=06/30/2018&contractCode=NRSO&parkId=72201\nTo Purchase the tickets')
-	yagmail.SMTP(myemail).send("Jonathan.Deffarges@gmail.com", 'Change Detected {} Spots Now Available for 6/30/2018'.format(newtext), 'Click here: https://www.recreation.gov/permitCalendar.do?page=calendar&calarvdate=06/30/2018&contractCode=NRSO&parkId=72201\nTo Purchase the tickets')
+	yagmail.SMTP(myemail).send(sendemail, 'Change Detected {} Spots Now Available for 6/13/2018'.format(newtext), 'Click here: https://www.recreation.gov/permitCalendar.do?page=calendar&calarvdate=06/13/2018&contractCode=NRSO&parkId=72201\nTo Purchase the tickets')
+	#yagmail.SMTP(myemail).send("funwithmyfriends@gmail.com", 'Change Detected {} Spots Now Available for 6/30/2018'.format(newtext), 'Click here: https://www.recreation.gov/permitCalendar.do?page=calendar&calarvdate=06/30/2018&contractCode=NRSO&parkId=72201\nTo Purchase the tickets')
+	#yagmail.SMTP(myemail).send("samritadhindsa@gmail.com", 'Change Detected {} Spots Now Available for 6/30/2018'.format(newtext), 'Click here: https://www.recreation.gov/permitCalendar.do?page=calendar&calarvdate=06/30/2018&contractCode=NRSO&parkId=72201\nTo Purchase the tickets')
+	#yagmail.SMTP(myemail).send("mathilde.badoual@berkeley.edu", 'Change Detected {} Spots Now Available for 6/30/2018'.format(newtext), 'Click here: https://www.recreation.gov/permitCalendar.do?page=calendar&calarvdate=06/30/2018&contractCode=NRSO&parkId=72201\nTo Purchase the tickets')
+	#agmail.SMTP(myemail).send("lkozinakov@yahoo.com", 'Change Detected {} Spots Now Available for 6/30/2018'.format(newtext), 'Click here: https://www.recreation.gov/permitCalendar.do?page=calendar&calarvdate=06/30/2018&contractCode=NRSO&parkId=72201\nTo Purchase the tickets')
 	
 	print('sent email')
 
 def resetFile():
-	if os.path.isfile('status.txt') == True:
-		os.remove('status.txt')
-	os.system("echo.>status.txt")
+	if os.path.isfile('status2.txt') == True:
+		os.remove('status2.txt')
+	os.system("echo.>status2.txt")
 
 
 def returnActionToken(page):
@@ -61,7 +60,7 @@ def CheckChange(facilityId):
 	'trail':'1',
 	'entrance':'315840|1065',
 	'range':'1',
-	'entryStartDate':'Sat Jun 30 2018',
+	'entryStartDate':'Wed Jun 13 2018',
 	'entryEndDate': '',
 	'groupSize':'1',
 	'lengthOfStay': '',
@@ -69,19 +68,19 @@ def CheckChange(facilityId):
 	'watercraftSize':'',
 	'cartItemId': '',
 	'availStatus': '',
-	'actionToken': returnActionToken(bs4.BeautifulSoup(res.get('https://www.recreation.gov/permitCalendar.do?page=calendar&calarvdate=06/30/2018&contractCode=NRSO&parkId=72201').text))}
+	'actionToken': returnActionToken(bs4.BeautifulSoup(res.get('https://www.recreation.gov/permitCalendar.do?page=calendar&calarvdate=06/13/2018&contractCode=NRSO&parkId=72201').text))}
 	
 	res.post('https://www.recreation.gov/permitCalendar.do?mode=submit', data=data)
 	page = res.get('https://www.recreation.gov/permits/Mt_Whitney/r/permitCalendar.do?page=calendar&contractCode=NRSO&parkId=72201')
 	page = bs4.BeautifulSoup(page.text, 'lxml')
-	with open('status.txt') as f:
+	with open('status2.txt') as f:
 		#if page.select('.permitStatus')[1].getText() not in f.readlines():
 			#print(type(page.select('.status a')[0]))
 			#print(page.select('.status a'))
 			#return str(page.select('.permitStatus')[1].getText())
 		numAvail = "R"
 		for entry in page.select('.status a'):
-			if 'arvdate=6/30/2018' in str(entry):
+			if 'arvdate=6/13/2018' in str(entry):
 				numAvail = entry.select("small")[0].get_text()
 		if numAvail not in f.readlines():
 			return numAvail
